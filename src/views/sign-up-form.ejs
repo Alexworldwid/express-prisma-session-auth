@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body style="position: relative; margin: 0; padding: 0; box-sizing: border-box">
+    <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #8387ffff; padding: 4px 12px; position: fixed; left: 0; top: 0; width: 100%; max-width:100%; z-index: 20">
+        <div>
+            <a href="/">Mini Google Drive</a>
+        </div>
+        <div>
+            <a href="">
+            </a>
+        </div>
+    </nav>
+
+    <%
+        const error = (name) => errors[name]?.msg;
+        const hasError = (name) => Boolean(errors[name]);
+    %>
+
+
+    <section style="width: 100%; position: relative; height: 100vh; background-color: rgba(233, 217, 217, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center">
+        <form action="/sign-up" method="post" style="background-color: white; padding: 20px; width:100%; max-width: 400px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: flex; gap: 12px; flex-direction: column">
+           
+           <h1 style="font:bold; color: blue; font-family: mono-san; text-align: center; margin: 0">Register</h1>
+            <div>
+                <input type="text" name="name" id="name" value="<%= oldInput?.name || '' %>" placeholder="Name" style="border-radius: 20px; padding: 10px; border: none; outline: 2px #6066FF solid; outline-offset: -2px; color: rgba(0,0,0,0.7); width: 100%">
+                <% if (error('name')) { %>
+                    <small style="color:#ff4d4d;"><%= error('name') %></small>
+                <% } %>
+            </div>
+
+            <div>
+                <input type="email" name="email" id="email"  value="<%= oldInput?.email || '' %>" placeholder="Email" style="border-radius: 20px; padding: 10px; border: none; outline: 2px #6066FF solid; outline-offset: -2px; color: rgba(0,0,0,0.7); width: 100%">
+                <% if (error('email')) { %>
+                    <small style="color:#ff4d4d;"><%= error('email') %></small>
+                <% } %>
+            </div>
+
+            <div>
+                <input type="password" name="password" id="password" placeholder="Password" style="border-radius: 20px; padding: 10px; border: none; outline: 2px #6066FF solid; outline-offset: -2px; color: rgba(0,0,0,0.7); width: 100%">
+                <% if (error('password')) { %>
+                    <small style="color:#ff4d4d;"><%= error('password') %></small>
+                <% } %>            
+            </div>
+
+            <div>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" style="border-radius: 20px; padding: 10px; border: none; outline: 2px #6066FF solid; outline-offset: -2px; color: rgba(0,0,0,0.7); width: 100%">
+                <% if (error('confirmPassword')) { %>
+                    <small style="color:#ff4d4d;"><%= error('confirmPassword') %></small>
+                <% } %>
+            </div>
+
+            <button type="submit" style=" width: 100%; padding: 10px; border-radius: 20px; border: none; background-color: #8B54FF; color: white; ">
+                Register
+            </button>
+                
+            <a href="/login" style="text-decoration: none; color: white; width: 100%; padding: 10px; border-radius: 20px; border: none; background-color: #252EFF; text-align: center;">Have an acoount? Login</a>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini google drive</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="/">mini-google-drive</a>
+        </div>
+        <div>
+            <%if (locals.currentUser) {%>
+                <a href="/logout">LOG OUT</a>
+            <%} else { %>
+                <a href="/sign-up">
+                    Sign Up
+                </a>
+                /
+                <a href="/login">
+                    Log In
+                </a>
+            <%}%>
+        </div>
+    </nav>
+    <% if (locals.currentUser) { %>
+        <h1 style="text-align: center; margin-top: 20px;">Welcome, <%= currentUser.name %>!</h1>
+    <% } else { %>
+        <h1 style="text-align: center; margin-top: 20px;">Welcome to mini-google-drive!</h1>
+    <% } %> 
+</body>
+</html>
