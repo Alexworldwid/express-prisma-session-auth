@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>folder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column; gap: 24px">
+  <%- include('partials/nav') %>
+  <%-  include('partials/shareForm', {folderId: folderId}) %>
+  <div>
+    <a href="/">Home</a>
+    <% breadCrumbs.forEach((crumb, index) => { %>
+      <span> / </span>
+
+      <% if (index === breadCrumbs.length - 1) { %>
+        <span class="current"><%= crumb.name %></span>
+      <% } else { %>
+        <a href="/folders/<%= crumb.id %>"><%= crumb.name %></a>
+      <% } %>
+
+    <% }) %>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+      <%- include('partials/listFolders') %>
+
+      <%- include('partials/listFile') %>
+  </div>
+
+
+  <div style="display: flex; width: 100%; justify-content: space-between; align-items: end; flex: 1;">
+    <%- include('partials/uploadForm', { parentId: folderId }) %>      
+    <%- include('partials/createFolder', { parentId: folderId }) %>
+  </div>
+
+  <%- include('partials/editModal', { parentId: folderId }) %>
+</body>
+</html>

@@ -7,10 +7,12 @@
 
 body {
     min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 10;
+    padding: 24px;
 }
 
 nav {
@@ -22,4 +24,208 @@ nav {
     padding: 4px 8px;
     z-index: 99;
     position: relative;
+}
+.hidden {
+    display: none;
+}
+.menu-toggle {
+    cursor: pointer;
+}
+
+.folder-li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+.dropdown {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    background-color: gray;
+    width: 120px;
+    z-index: 20;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgb(198, 193, 193);
+}
+.unhide {
+    display: flex;
+}
+.dropdown button {
+    border: none;
+    background: black;
+    cursor: pointer;
+    color: white;
+}
+
+.upload-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.file-input {
+  display: none; /* hide ugly default input */
+}
+
+.file-label {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+
+.file-label:hover {
+  background: #eee;
+}
+
+.upload-btn {
+  padding: 10px 16px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upload-btn:hover {
+  background: #333;
+}
+
+
+.folder-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.folder-input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.folder-input:focus {
+  border-color: black;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+.folder-btn {
+  padding: 10px 16px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.folder-btn:hover {
+  background: #333;
+}
+
+/* BACKDROP */
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+/* MODAL BOX */
+.modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* TITLE */
+.modal h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+/* INPUT */
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* BUTTON CONTAINER */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* HIDDEN CLASS */
+.hidden {
+  display: none;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

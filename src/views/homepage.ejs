@@ -4,30 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mini google drive</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <nav>
-        <div>
-            <a href="/">mini-google-drive</a>
-        </div>
-        <div>
-            <%if (locals.currentUser) {%>
-                <a href="/logout">LOG OUT</a>
-            <%} else { %>
-                <a href="/sign-up">
-                    Sign Up
-                </a>
-                /
-                <a href="/login">
-                    Log In
-                </a>
-            <%}%>
-        </div>
-    </nav>
-    <% if (locals.currentUser) { %>
-        <h1 style="text-align: center; margin-top: 20px;">Welcome, <%= currentUser.name %>!</h1>
-    <% } else { %>
-        <h1 style="text-align: center; margin-top: 20px;">Welcome to mini-google-drive!</h1>
-    <% } %> 
+<body style="height: 100vh; display: flex; flex-direction: column;">
+    <%- include('partials/nav') %>
+
+    <%- include('partials/welcomeMessage') %>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+        <%- include('partials/listFolders') %>
+
+        <%- include('partials/listFile') %>
+    </div>
+
+    <div style="display: flex; width: 100%; justify-content: space-between; align-items: end; flex: 1;">
+        <%- include('partials/uploadForm') %>
+        <%- include('partials/createFolder') %>
+    </div>
+
+    <%- include('partials/editModal') %>
+
+    <script src="/folder.js"></script>
 </body>
 </html>

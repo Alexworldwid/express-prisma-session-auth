@@ -1,0 +1,23 @@
+<ul style="display: flex; flex-direction: column; gap: 16px;">
+  <% if (files && files.length > 0) { %>
+    <% files.forEach(file => { %>
+      <li style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="<%= file.path %>" target="_blank">
+          <%= file.name %>
+        </a>
+
+        <form 
+            action="/files/<%= file.id %>/delete" 
+            method="POST" 
+            style="display:inline;"
+            onsubmit="return confirm('Delete this file?')"
+            >
+            <button style="border: 1px black; background-color: none; color: blue; padding: 4px 8px; border-radius: 4px; cursor: pointer;" type="submit">Delete</button>
+            <a href="/files/<%= file.id %>">View Details</a>
+        </form>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No files yet</li>
+  <% } %>
+</ul>

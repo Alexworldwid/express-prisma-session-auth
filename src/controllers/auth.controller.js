@@ -66,7 +66,7 @@ const loginForm = async (req, res, next) => {
       res.render("login", {
         errors: {},
         oldInput: {},
-        failureMessage: messages[0] // single message
+        failureMessage: messages[0], // single message
       });
     } catch (error) {
         next(error)

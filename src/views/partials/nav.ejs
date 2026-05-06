@@ -1,0 +1,18 @@
+<nav style="display: flex; justify-content: space-between; align-items: center; background-color: #f0f0f0;">
+    <div>
+        <a href="/">mini-google-drive</a>
+    </div>
+    <div>
+        <%if (locals.currentUser) {%>
+            <a href="/logout">LOG OUT</a>
+        <%} else { %>
+            <a href="/sign-up">
+                Sign Up
+            </a>
+            /
+            <a href="/login">
+                Log In
+            </a>
+        <%}%>
+    </div>
+</nav>

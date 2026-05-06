@@ -1,0 +1,14 @@
+<form action="/folders" method="POST" class="folder-form">
+  <input 
+    type="text" 
+    name="name" 
+    placeholder="New folder" 
+    required 
+    class="folder-input"
+  />
+
+  <% if (typeof parentId !== "undefined" && parentId) {%>
+    <input type="hidden" name="parentId" value="<%= parentId %>" />
+  <% } %>
+  <button type="submit" class="folder-btn">+ New Folder</button>
+</form>

@@ -1,0 +1,17 @@
+<h1>File Details</h1>
+
+<p><strong>Name:</strong> <%= file.name %></p>
+
+<p><strong>Size:</strong> 
+  <%= (file.size / 1024).toFixed(2) %> KB
+</p>
+
+<p><strong>Uploaded At:</strong> 
+  <%= new Date(file.createdAt).toLocaleString() %>
+</p>
+
+<br>
+
+<a href="<%= file.path %>">
+  <button style="border: 1px black; background-color: none; color: blue; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Download</button>
+</a>

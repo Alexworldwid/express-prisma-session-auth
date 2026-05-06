@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shared Folder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h2>Shared Folder: <%= folder.name %></h2>
+
+  <!-- Folders -->
+  <div>
+    <h3>Folders</h3>
+    <% if (folder.children.length === 0) { %>
+      <p>No subfolders</p>
+    <% } %>
+
+    <% folder.children.forEach(child => { %>
+      <div>
+        📁 <%= child.name %>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Files -->
+  <div>
+    <h3>Files</h3>
+    <% if (folder.files.length === 0) { %>
+      <p>No files</p>
+    <% } %>
+
+    <% folder.files.forEach(file => { %>
+      <div>
+        📄 <%= file.name %>
+        <a href="<%= file.path %>" target="_blank">Download</a>
+      </div>
+    <% }) %>
+  </div>
+
+</body>
+</html>

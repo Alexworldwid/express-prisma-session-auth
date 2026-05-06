@@ -1,0 +1,16 @@
+<form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form" onsubmit="disableButton()">
+  
+  <label class="file-label">
+    <% if (typeof parentId !== "undefined" && parentId) { %>
+      <input type="hidden" name="folderId" value="<%= parentId %>" />
+    <% } %>
+    <input type="file" name="file" required class="file-input" />
+    <span class="file-text">Choose a file</span>
+  </label>
+
+  <button id="uploadBtn" type="submit" class="upload-btn">Upload</button>
+
+</form>
+
+
+<script src="/file.js"></script>

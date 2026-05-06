@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require("node:path");
 const authRouter = require("./routes/auth.route");
-const homeRouter = require("./routes/home.route")
+const homeRouter = require("./routes/home.route");
+const fileRouter = require("./routes/file.route");
+const folderRouter = require("./routes/folder.route");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -32,6 +34,7 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 app.use((req, res, next) => {
@@ -42,6 +45,8 @@ app.use((req, res, next) => {
 // routes
 app.use("/", authRouter)
 app.use("/", homeRouter)
+app.use("/", fileRouter)
+app.use("/", folderRouter);
 
 
 app.listen(PORT, (error) => {
